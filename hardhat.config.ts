@@ -16,15 +16,15 @@ const config: HardhatUserConfig = {
         polygon_testnet: {
             url: process.env.POLYGON_TESTNET_URL || '',
             accounts:
-                process.env.PRIVATE_KEY !== undefined
-                    ? [process.env.PRIVATE_KEY]
+                process.env.PRIVATE_KEY_TESTNET !== undefined
+                    ? [process.env.PRIVATE_KEY_TESTNET]
                     : [],
         },
         polygon_mainnet: {
-            url: process.env.POLYGON_TESTNET_URL || '',
+            url: process.env.POLYGON_MAINNET_URL || '',
             accounts:
-                process.env.PRIVATE_KEY !== undefined
-                    ? [process.env.PRIVATE_KEY]
+                process.env.PRIVATE_KEY_MAINNET !== undefined
+                    ? [process.env.PRIVATE_KEY_MAINNET]
                     : [],
         },
     },
