@@ -2,14 +2,20 @@ import { ethers } from 'hardhat'
 
 async function main() {
     const ANIV20 = await ethers.getContractFactory('ANIV20')
-    /* Input
-        address _Owner = ,
-        address _Address2022 = ,
-        address _Address2023 = ,
-        address _Address2024 = ,
-        address _Address2025 =
-	 */
-    const contract = await ANIV20.deploy('', '', '', '', '')
+    const {
+        ADDRESS_OWNER,
+        ADDRESS_2022,
+        ADDRESS_2023,
+        ADDRESS_2024,
+        ADDRESS_2025,
+    } = process.env
+    const contract = await ANIV20.deploy(
+        ADDRESS_OWNER as string,
+        ADDRESS_2023 as string,
+        ADDRESS_2022 as string,
+        ADDRESS_2024 as string,
+        ADDRESS_2025 as string
+    )
     await contract.deployed()
     console.log('Token address:', contract.address)
 }
