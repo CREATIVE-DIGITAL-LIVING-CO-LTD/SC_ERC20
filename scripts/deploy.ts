@@ -11,6 +11,7 @@ async function main() {
 	 */
     const contract = await ANIV20.deploy('', '', '', '', '')
     await contract.deployed()
+    console.log('Token address:', contract.address)
 }
 
 main().catch((error) => {
