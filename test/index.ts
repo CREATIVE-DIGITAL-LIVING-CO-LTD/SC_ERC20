@@ -13,7 +13,7 @@ describe('ANIV20 Test', function () {
     let mainAddress: any
     let teamAddress: any
     let partnerAddress: any
-    let parketingAddress: any
+    let marketingAddress: any
     let other: any
     let contract: any
 
@@ -23,7 +23,7 @@ describe('ANIV20 Test', function () {
             mainAddress,
             teamAddress,
             partnerAddress,
-            parketingAddress,
+            marketingAddress,
             other,
         ] = await ethers.getSigners()
         const ANIV20 = await ethers.getContractFactory('ANIV20')
@@ -32,7 +32,7 @@ describe('ANIV20 Test', function () {
             mainAddress.address,
             teamAddress.address,
             partnerAddress.address,
-            parketingAddress.address
+            marketingAddress.address
         )
         await contract.deployed()
     })
@@ -52,7 +52,7 @@ describe('ANIV20 Test', function () {
             (await contract.balanceOf(partnerAddress.address)).toString()
         ).to.equal(PARTNER)
         expect(
-            (await contract.balanceOf(parketingAddress.address)).toString()
+            (await contract.balanceOf(marketingAddress.address)).toString()
         ).to.equal(MARKETING)
     })
 
