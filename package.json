@@ -10,7 +10,8 @@
     "test": "npx hardhat test",
     "deploy": "npx hardhat run scripts/deploy.ts --network localhost",
     "deploy:testnet": "npx hardhat run scripts/deploy.ts --network polygon_testnet",
-    "deploy:mainnet": "npx hardhat run scripts/deploy.ts --network polygon_mainnet"
+    "deploy:mainnet": "npx hardhat run scripts/deploy.ts --network polygon_mainnet",
+    "coverage": "npx hardhat coverage"
   },
   "author": "Pasut Th",
   "license": "ISC",

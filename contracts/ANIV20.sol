@@ -6,34 +6,48 @@ import '@openzeppelin/contracts/access/Ownable.sol';
 
 contract ANIV20 is ERC20, Ownable {
 
-    uint256 private constant YEAR_2022 = 600 * 1000000 * 10 ** 18;
-    uint256 private constant YEAR_2023 = 500 * 1000000 * 10 ** 18;
-    uint256 private constant YEAR_2024 = 500 * 1000000 * 10 ** 18;
-    uint256 private constant YEAR_2025 = 400 * 1000000 * 10 ** 18;
+    // private seed + public sale = 32%
+    uint256 private constant MAIN = 640 * 1000000 * 10 ** 18;
+    // founder & team = 15%
+    uint256 private constant TEAM = 300 * 1000000 * 10 ** 18;
+    // advisors + partners = 23%
+    uint256 private constant PARTNER = 460 * 1000000 * 10 ** 18;
+    // marketing = 30%
+    uint256 private constant MARKETING = 600 * 1000000 * 10 ** 18;
 
     string private _name = "Aniv";
     string private _symbol = "ANIV";
 
     address Owner;
-    address Address2022;
-    address Address2023;
-    address Address2024;
-    address Address2025;
+    address MainAddress;
+    address TeamAddress;
+    address PartnerAddress;
+    address MarketingAddress;
 
-    constructor (address _Owner, address _Address2022, address _Address2023, address _Address2024, address _Address2025) ERC20(_name, _symbol) {
+    constructor (address _Owner, address _MainAddress, address _TeamAddress, address _PartnerAddress, address _MarketingAddress) ERC20(_name, _symbol) {
         //set wallet address
         Owner = _Owner;
-        Address2022 = _Address2022;
-        Address2023 = _Address2023;
-        Address2024 = _Address2024;
-        Address2025 = _Address2025;
+        MainAddress = _MainAddress;
+        TeamAddress = _TeamAddress;
+        PartnerAddress = _PartnerAddress;
+        MarketingAddress = _MarketingAddress;
 
-        _mint(Address2022, YEAR_2022);
-        _mint(Address2023, YEAR_2023);
-        _mint(Address2024, YEAR_2024);
-        _mint(Address2025, YEAR_2025);
+        // mint to main wallet ( private seed + public sale )
+        _mint(MainAddress, MAIN);
+        // mint to team wallet ( founder & team )
+        _mint(TeamAddress, TEAM);
+        // mint to partner wallet ( advisors + partners )
+        _mint(PartnerAddress, PARTNER);
+        // mint to marketing wallet ( marketing )
+        _mint(MarketingAddress, MARKETING);
+
         //transfer to real owner
         transferOwnership(_Owner);
+    }
+
+    function burn(uint256 amount) public returns (bool) {
+        _burn(_msgSender(), amount);
+        return true;
     }
 
 }
