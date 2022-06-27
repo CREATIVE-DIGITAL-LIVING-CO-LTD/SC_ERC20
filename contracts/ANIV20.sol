@@ -6,6 +6,7 @@ import '@openzeppelin/contracts/access/Ownable.sol';
 
 contract ANIV20 is ERC20, Ownable {
 
+    // Total Supply 2000m
     // private seed + public sale = 32%
     uint256 private constant MAIN = 640 * 1000000 * 10 ** 18;
     // founder & team = 15%
