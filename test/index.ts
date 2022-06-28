@@ -9,7 +9,6 @@ const MARKETING = '600000000000000000000000000'
 const TOTAL_SUPPLY = '2000000000000000000000000000' // total supply
 
 describe('ANIV20 Test', function () {
-    let owner: any
     let mainAddress: any
     let teamAddress: any
     let partnerAddress: any
@@ -18,17 +17,10 @@ describe('ANIV20 Test', function () {
     let contract: any
 
     beforeEach(async () => {
-        ;[
-            owner,
-            mainAddress,
-            teamAddress,
-            partnerAddress,
-            marketingAddress,
-            other,
-        ] = await ethers.getSigners()
+        ;[mainAddress, teamAddress, partnerAddress, marketingAddress, other] =
+            await ethers.getSigners()
         const ANIV20 = await ethers.getContractFactory('ANIV20')
         contract = await ANIV20.deploy(
-            owner.address,
             mainAddress.address,
             teamAddress.address,
             partnerAddress.address,

@@ -4,7 +4,7 @@ pragma solidity 0.8.0;
 import '@openzeppelin/contracts/token/ERC20/ERC20.sol';
 import '@openzeppelin/contracts/access/Ownable.sol';
 
-contract ANIV20 is ERC20, Ownable {
+contract ANIV20 is ERC20 {
 
     // Total Supply 2000m
     // private seed + public sale = 32%
@@ -19,15 +19,13 @@ contract ANIV20 is ERC20, Ownable {
     string private _name = "Aniv";
     string private _symbol = "ANIV";
 
-    address Owner;
     address MainAddress;
     address TeamAddress;
     address PartnerAddress;
     address MarketingAddress;
 
-    constructor (address _Owner, address _MainAddress, address _TeamAddress, address _PartnerAddress, address _MarketingAddress) ERC20(_name, _symbol) {
+    constructor (address _MainAddress, address _TeamAddress, address _PartnerAddress, address _MarketingAddress) ERC20(_name, _symbol) {
         //set wallet address
-        Owner = _Owner;
         MainAddress = _MainAddress;
         TeamAddress = _TeamAddress;
         PartnerAddress = _PartnerAddress;
@@ -42,8 +40,6 @@ contract ANIV20 is ERC20, Ownable {
         // mint to marketing wallet ( marketing )
         _mint(MarketingAddress, MARKETING);
 
-        //transfer to real owner
-        transferOwnership(_Owner);
     }
 
     function burn(uint256 amount) public returns (bool) {
