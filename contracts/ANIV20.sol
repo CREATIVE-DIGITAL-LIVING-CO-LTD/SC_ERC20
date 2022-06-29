@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.0;
+pragma solidity 0.8.14;
 
 import '@openzeppelin/contracts/token/ERC20/ERC20.sol';
 
@@ -18,10 +18,10 @@ contract ANIV20 is ERC20 {
     string private _name = "Aniv";
     string private _symbol = "ANIV";
 
-    address MainAddress;
-    address TeamAddress;
-    address PartnerAddress;
-    address MarketingAddress;
+    address public MainAddress;
+    address public TeamAddress;
+    address public PartnerAddress;
+    address public MarketingAddress;
 
     constructor (address _MainAddress, address _TeamAddress, address _PartnerAddress, address _MarketingAddress) ERC20(_name, _symbol) {
         //set wallet address
