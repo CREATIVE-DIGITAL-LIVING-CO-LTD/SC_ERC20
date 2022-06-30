@@ -11,7 +11,7 @@ import 'solidity-coverage'
 dotenv.config({ path: __dirname + '/.env' })
 
 const config: HardhatUserConfig = {
-    solidity: '0.8.14',
+    solidity: '0.8.15',
     networks: {
         polygon_testnet: {
             url: process.env.POLYGON_TESTNET_URL || '',
