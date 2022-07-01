@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start-server": "npx hardhat node",
+    "flatten": "npx hardhat flatten > flatten/ANIV20.sol",
     "account": "npx hardhat accounts",
     "compile": "npx hardhat compile",
     "test": "npx hardhat test",
