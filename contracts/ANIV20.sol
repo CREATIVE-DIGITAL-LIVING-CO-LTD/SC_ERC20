@@ -15,7 +15,7 @@ contract ANIV20 is ERC20 {
     // marketing = 30%
     uint256 private constant MARKETING = 600 * 1000000 * 10 ** 18;
 
-    string private _name = "Aniv";
+    string private _name = "Aniverse";
     string private _symbol = "ANIV";
 
     address public MainAddress;
